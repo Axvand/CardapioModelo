@@ -33,11 +33,7 @@ body{
     justify-content: center;
     align-items: center;
     position: fixed;
-    right: 220px;
-    @media (max-width:400px) {
-        right: 0;
-    }
-    
+    right: 0;
 }
 .menu{
     z-index: 1;
