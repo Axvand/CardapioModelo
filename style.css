@@ -117,14 +117,16 @@ main{
     margin: auto;
     z-index: 1;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .imgCard{
     transition: 0.3s;
 
 }
 .imgCard:hover{
-    height: 220px;
-    width: 277px;
+    scale: 1.4;
     animation: pulse;
     animation-duration: 1s;
     animation-iteration-count: infinite;
