@@ -23,6 +23,7 @@ const pratoCard = document.querySelectorAll('.PratoCard');
 const ingredientesCard = document.querySelectorAll('.ingredientesCard');
 const precoCard = document.querySelectorAll('.precoCard');
 const Card = document.querySelectorAll('.card')
+const buttonCard = document.querySelectorAll('.Buy')
 
 const pedido =[];
 
@@ -34,47 +35,23 @@ function setAttribute(Atributo, valor, Elemento){
     Elemento.setAttributeNode(atributo);
 };
 
-    console.log(Card)
 
+
+//setInCar
+function setInCar(button,array,pizza){
+    button.addEventListener('click',()=>{
+        array.push(pizza)
+        console.log(array)
+    })
+};
 fetch('./pizzas.json', {
     headers: {
         accept: "application/json"
     }
-}
-).then(res => res.json()).then((res) => {
+})
+.then(res => res.json()).then((res) => {
     const pizzas = res.pizzas
-
-    for (x = 0; x < 9; x++) {
-        setAttribute('src', pizzas[x].img, imgCard[x]);
-        pratoCard[x].innerHTML = `${pizzas[x].prato}`;
-        ingredientesCard[x].innerHTML = `${pizzas[x].description}`;
-        precoCard[x].innerHTML = `${pizzas[x].preco}`;
-
-        buttonPush[x].addEventListener('click', () => {
-            pedido.push(pizzas[0])
-            console.log(pedido)
-        })
+    for(var x =0; x<9;x++){
+    setInCar(buttonCard[x],pedido,pizzas[x])
     }
-    
 });
-
-
-/*
-imgCard
-PratoCard
-ingredientesCard
-precoCard
-
- for (x = 0; x < 9; x++) {
-        setAttribute('src', pizzas[x].img, imgCard[x]);
-        pratoCard[x].innerHTML = `${pizzas[x].prato}`;
-        ingredientesCard[x].innerHTML = `${pizzas[x].description}`;
-        precoCard[x].innerHTML = `${pizzas[x].preco}`;
-
-        buttonPush[x].addEventListener('click', () => {
-            pedido.push(pizzas.id)
-            console.log(pedido)
-        })
-    }
-*/
-//const x = document.querySelectorAll('ccc')
