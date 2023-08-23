@@ -45,6 +45,7 @@ const totalObj =[]
 const buttonPush = document.querySelectorAll('.PushCard');
 
 
+
 //setarAtrinutoEmElementos
 function setAttribute(Atributo, valor, Elemento){
     const atributo = document.createAttribute(Atributo);
@@ -80,16 +81,15 @@ function setInCar(button, array,total, pizza) {
             },600)
         }, 1000)
 
+        //incrementar o total
         var sum = 0;
         for (var x = 0; x < totalObj.length; x++) {
             sum += totalObj[x];
         }
-
-        /*const a = document.querySelector('.totalValorCart').innerHTML;
-        x = parseInt(a)+sum*/
         document.querySelector('.totalValorCart').innerHTML=`R$${sum},00`
 
-
+       
+        
     })
 
 };
@@ -107,7 +107,7 @@ carrinhoButton.addEventListener('click',()=>{
 //closeCart
 carrinhoMenu.addEventListener('click',()=>{
     mainCarrinho.style.animation='fadeOutLeft'
-    mainCarrinho.style.animationDuration='0.49s'
+    mainCarrinho.style.animationDuration='0.5s'
     mainCarrinho.style.display='block'
     carrinhoButton.style.backgroundColor='transparent'
     setTimeout(()=>{
@@ -134,14 +134,32 @@ fetch('./pizzas.json', {
 
 
 
-/*
-function Somar(Valores,localParaSoma){
-         let totalSoma = 0;
-         for(var i =0;i<Valores.length;i++){
-         totalSoma+=Valores[i];
-         localParaSoma.innerHTML=`Total: ${totalSoma}` 
-        }
-      } 
-
-      Somar(totalObj, totalValorCart)
+/*function addBox(){
+    const produtos = document.querySelectorAll('.produtos');
+    const box = document.createElement('div');
+    produtos[0].appendChild(box);
+    setAtribute('class', 'imgCart', box);
+}
 */
+
+
+
+
+   /*  const img = document.createElement('img')
+    produtos.appendChild(img)
+
+   setAttribute('class', 'imgBox', img)
+    const h4 = document.createElement('h4')
+    box.appendChild(h4)
+    setAttribute('class', 'txtBox', h4)
+    console.log(main)*/
+
+/*
+function addText(x, text) {
+    const txt = document.querySelectorAll('.txtBox')
+    txt[x].innerHTML = text
+}
+function addImg(urlImg, x) {
+    const imgBox = document.querySelectorAll('.imgBox')
+    setAttribute('src', urlImg, imgBox[x])
+}*/
