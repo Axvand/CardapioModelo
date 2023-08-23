@@ -107,7 +107,7 @@ carrinhoButton.addEventListener('click',()=>{
 //closeCart
 carrinhoMenu.addEventListener('click',()=>{
     mainCarrinho.style.animation='fadeOutLeft'
-    mainCarrinho.style.animationDuration='0.49s'
+    mainCarrinho.style.animationDuration='0.5s'
     mainCarrinho.style.display='block'
     carrinhoButton.style.backgroundColor='transparent'
     setTimeout(()=>{
