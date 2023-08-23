@@ -6,6 +6,30 @@ body{
     margin: 0px;
     position: relative;
 }
+.alert{
+    border-radius: 10px;
+    background-color: rgb(27, 192, 27);
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 5px;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    box-shadow: 0px 0px 1px rgb(136, 255, 0);
+}
+.boxAlert{
+    position: fixed;
+    right: 0;
+    display: flex;
+    justify-content: end;
+    z-index: 1;
+    animation: fadeInUp;
+    animation-duration: 1s;
+    display: none;
+}
 .nav{
     height: 80px;
     background: black;
@@ -38,20 +62,36 @@ body{
 .boxNav3{
     background-color: transparent;
     height: 60px;
-    width: 70px;
+    width: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 590px;
     right: 0;
+    border-radius: 150px;
+}
+.identificadorQtdCarrinho{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(224, 34, 0);
+    text-align: center;
+    color: white;
+    border-radius: 50px;
+    display: none;
+    text-shadow: 0px 0px 2px black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /*======================================================================*/
 .menu{
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.438);
+    background-color: rgba(0, 0, 0, 0.74);
+    backdrop-filter:blur(3px) ;
     position: fixed;
     display: none;
 }
@@ -73,32 +113,80 @@ body{
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.438);
+    background-color: rgba(0, 0, 0, 0.712);
+    backdrop-filter: blur(2px);
     position: fixed;
     display: none;
 
 }
+.navCarrinho{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+}
+
+.boxTotalValorCart{
+    display: flex;
+}
+
+.totalValorCart{
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0px 1px 3px black;
+    font-size: 1.2em;
+}
+.textoTotal{
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0px 1px 3px black;
+    font-size: 1.2em;
+}
+
+.boxPedidosMenuCart{
+    background-color: rgb(250, 234, 163);
+    padding: 3px;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 280px;
+    height: 400px;
+}
+.boxPedidosMenuCart::-webkit-scrollbar {
+    width: 9px;             
+  }
+  
+  .boxPedidosMenuCart::-webkit-scrollbar-track {
+    background: rgb(253, 253, 253); 
+    border-radius: 20px;      
+  }
+  
+  .boxPedidosMenuCart::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 145, 0);    /* color of the scroll thumb */
+    border-radius: 5px;       /* roundness of the scroll thumb */
+    border: 1px solid rgba(255, 115, 0, 0.315);  /* creates padding around scroll thumb */
+  }
 .mainCarrinho{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 500px;
+    display: none;
     position: absolute;
     left:0;
     max-width: 76%;
     width: 300px;
     height: 700px;
     background-color: rgb(247, 207, 30);
-    text-shadow: 1px 1px 3px black;
-    padding: 10px;
-    
-}
-.produtos{
     padding: 4px;
-    max-width: 100%;
-    width: 500px;
+}
+
+.produtos{
+    padding: 3px;
+    max-width: 95%;
+    width:400px;
     height: 80px;
-    background-color: rgb(247, 207, 30);
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
 }
 .imgCart{
+    margin-top: 3px;
     border-radius: 80px;
     overflow: hidden;
     width: 70px;
