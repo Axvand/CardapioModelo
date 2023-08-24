@@ -1,12 +1,10 @@
 html{
     scroll-behavior: smooth;
-    background-image: url('https://elements-cover-images-0.imgix.net/7372f755-21e7-49d7-864e-ca581abfc6c0?auto=compress%2Cformat&fit=max&w=1019&s=d0f11ab7bed4d1a1ad383f051f686066');
 }
 body{
-    background-image: url(https://elements-cover-images-0.imgix.net/7372f755-21e7-49d7-864e-ca581abfc6c0?auto=compress%2Cformat&fit=max&w=1019&s=d0f11ab7bed4d1a1ad383f051f686066);
+    background-image: linear-gradient(to bottom, black,rgb(20, 20, 20),rgb(31, 30, 30));
     margin: 0px;
     position: relative;
-    
 }
 .alert{
     border-radius: 10px;
@@ -34,8 +32,7 @@ body{
 }
 .nav{
     height: 80px;
-    background: rgba(0, 0, 0, 0.822);
-    backdrop-filter: blur(7px);
+    background: black;
     margin: 0%;
     max-width: 900px;
     margin: auto;
@@ -187,9 +184,11 @@ body{
     margin: 5px;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
 }
 .imgCart{
-    margin-top: 3px;
+    margin: 6px;
     border-radius: 80px;
     overflow: hidden;
     width: 70px;
@@ -232,8 +231,7 @@ header{
 }
 main{
     max-width: 900px;
-    background: rgba(0, 0, 0, 0.822);
-    backdrop-filter: blur(7px);
+    background-image: linear-gradient(to bottom, black,rgb(26, 25, 25),rgb(54, 54, 54));
     margin: auto;
 }
 .pratos{

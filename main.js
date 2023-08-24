@@ -28,7 +28,6 @@ const buttonCard = document.querySelectorAll('.Buy')
 const boxAlert = document.querySelector('.boxAlert')
 //============================================
 const identificadorQtd = document.querySelector(".identificadorQtdCarrinho")
-const qtdCart = identificadorQtd.innerHTML;
 //=====================================
 //carrinhoMenu
 const carrinhoMenu = document.querySelector(".carrinho")
@@ -43,6 +42,10 @@ const totalValorCart =document.querySelector('.totalValorCart')
 const pedido =[];
 const totalObj =[]
 const buttonPush = document.querySelectorAll('.PushCard');
+//caixa de pedidos
+const boxPedidos = document.querySelector('.boxPedidosMenuCart')
+
+console.log(boxPedidos)
 
 
 
@@ -54,11 +57,15 @@ function setAttribute(Atributo, valor, Elemento){
 };
 
 //setInCar
-function setInCar(button, array,total, pizza) {
+function setInCar(button, array,total, pizza, ImgPedidos) {
     button.addEventListener('click', () => {
         //inclusao na array produtos
+        //indicador de qtd carrinho
         array.push(pizza)
+        //-----------------
+        //total
         total.push(pizza.preco)
+        //------------------
         console.log(array)
         console.log(total)
         //animação do alerta
@@ -86,12 +93,11 @@ function setInCar(button, array,total, pizza) {
         for (var x = 0; x < totalObj.length; x++) {
             sum += totalObj[x];
         }
-        document.querySelector('.totalValorCart').innerHTML=`R$${sum},00`
-
-       
-        
+        document.querySelector('.totalValorCart').innerHTML=`R$${sum},00`;
+      // renderProdutono carrinho
+        addBox(ImgPedidos)
+  
     })
-
 };
 
 
@@ -126,40 +132,30 @@ fetch('./pizzas.json', {
 })
 .then(res => res.json()).then((res) => {
     const pizzas = res.pizzas
-    for(var x =0; x<9;x++){
-    setInCar(buttonCard[x], pedido, totalObj, pizzas[x])
+    for(var x =0; x<pizzas.length;x++){
+    setInCar(buttonCard[x], pedido, totalObj, pizzas[x],pizzas[x].img)
     }
 });
 
 
 
-
-/*function addBox(){
-    const produtos = document.querySelectorAll('.produtos');
+//Produtos Pedidos:
+function addBox(imgx, NumeroProduto, NomePrato) {
+    //box principal:
     const box = document.createElement('div');
-    produtos[0].appendChild(box);
-    setAtribute('class', 'imgCart', box);
+    boxPedidos.appendChild(box);
+    setAttribute('class', 'produtos', box);
+    //box>img(.imgCart)
+    const img = document.createElement('img');
+    box.appendChild(img);
+    setAttribute('class', 'imgCart', img);
+    setAttribute('src', imgx, img);
+    
+    const h4 = document.createElement('h4');
+    box.appendChild(h4);
+    setAttribute('class', 'h4PedidoCart', h4);
+    const NomeDoPedido = document.querySelectorAll('.h4PedidoCart')
+    NomeDoPedido[NumeroProduto].innerHTML=NomePrato
 }
-*/
 
-
-
-
-   /*  const img = document.createElement('img')
-    produtos.appendChild(img)
-
-   setAttribute('class', 'imgBox', img)
-    const h4 = document.createElement('h4')
-    box.appendChild(h4)
-    setAttribute('class', 'txtBox', h4)
-    console.log(main)*/
-
-/*
-function addText(x, text) {
-    const txt = document.querySelectorAll('.txtBox')
-    txt[x].innerHTML = text
-}
-function addImg(urlImg, x) {
-    const imgBox = document.querySelectorAll('.imgBox')
-    setAttribute('src', urlImg, imgBox[x])
-}*/
+//document.querySelectorAll('.h4PedidoCart').innerHTML= NomePrato
