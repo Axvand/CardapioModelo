@@ -55,9 +55,8 @@ function setAttribute(Atributo, valor, Elemento){
     atributo.value = `${valor}`;
     Elemento.setAttributeNode(atributo);
 };
-
 //setInCar
-function setInCar(button, array,total, pizza, ImgPedidos) {
+function setInCar(button, array,total, pizza) {
     button.addEventListener('click', () => {
         //inclusao na array produtos
         //indicador de qtd carrinho
@@ -94,9 +93,14 @@ function setInCar(button, array,total, pizza, ImgPedidos) {
             sum += totalObj[x];
         }
         document.querySelector('.totalValorCart').innerHTML=`R$${sum},00`;
+
+
       // renderProdutono carrinho
-        addBox(ImgPedidos)
-  
+        addBox()
+        for(var i =0; i<pedido.length;i++){
+            txtAdd(i,pedido[i].prato)
+            addImg(pedido[i].img ,i)
+        }
     })
 };
 
@@ -132,15 +136,16 @@ fetch('./pizzas.json', {
 })
 .then(res => res.json()).then((res) => {
     const pizzas = res.pizzas
-    for(var x =0; x<pizzas.length;x++){
-    setInCar(buttonCard[x], pedido, totalObj, pizzas[x],pizzas[x].img)
+    for(var x = 0 ; x < pizzas.length ; x++){
+    setInCar(buttonCard[x], pedido, totalObj, pizzas[x])
     }
+
 });
 
 
 
 //Produtos Pedidos:
-function addBox(imgx, NumeroProduto, NomePrato) {
+function addBox(){
     //box principal:
     const box = document.createElement('div');
     boxPedidos.appendChild(box);
@@ -149,13 +154,23 @@ function addBox(imgx, NumeroProduto, NomePrato) {
     const img = document.createElement('img');
     box.appendChild(img);
     setAttribute('class', 'imgCart', img);
-    setAttribute('src', imgx, img);
-    
-    const h4 = document.createElement('h4');
-    box.appendChild(h4);
-    setAttribute('class', 'h4PedidoCart', h4);
-    const NomeDoPedido = document.querySelectorAll('.h4PedidoCart')
-    NomeDoPedido[NumeroProduto].innerHTML=NomePrato
+    //
+    const txt = document.createElement('h4');
+    box.appendChild(txt);
+    setAttribute('class','textPedido',txt);
 }
+// função set>Nome dos pratos no carrinho
 
-//document.querySelectorAll('.h4PedidoCart').innerHTML= NomePrato
+
+function txtAdd(y,NomeDoPrato){
+    const textPedido = document.querySelectorAll('.textPedido');
+    textPedido[y].innerHTML=NomeDoPrato;
+}
+// função set > Imagem dos pratos no carrinho
+function addImg(imgUrl, i) {
+    const imgCart = document.querySelectorAll(".imgCart")
+    const atributo = document.createAttribute('src');
+    atributo.value = `${imgUrl}`;
+    imgCart[i].setAttributeNode(atributo);
+    console.log(textPedido)
+}
