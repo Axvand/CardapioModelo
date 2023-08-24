@@ -160,11 +160,9 @@ function addBox(){
     setAttribute('class','textPedido',txt);
 }
 // função set>Nome dos pratos no carrinho
-
-
 function txtAdd(y,NomeDoPrato){
-    const textPedido = document.querySelectorAll('.textPedido');
-    textPedido[y].innerHTML=NomeDoPrato;
+const textPedido = document.querySelectorAll('.textPedido');
+textPedido[y].innerHTML=NomeDoPrato;
 }
 // função set > Imagem dos pratos no carrinho
 function addImg(imgUrl, i) {
@@ -172,5 +170,4 @@ function addImg(imgUrl, i) {
     const atributo = document.createAttribute('src');
     atributo.value = `${imgUrl}`;
     imgCart[i].setAttributeNode(atributo);
-    console.log(textPedido)
 }
