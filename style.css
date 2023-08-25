@@ -176,7 +176,13 @@ body{
     padding: 4px;
 }
 
+.mainCarrinho2{
+    width: 100%;
+    height: 100%;
+}
+
 .produtos{
+    position: relative;
     padding: 3px;
     max-width: 95%;
     width:400px;
@@ -193,6 +199,14 @@ body{
     overflow: hidden;
     width: 70px;
     height: 70px;
+}
+
+.imgDelete{
+    position: absolute;
+    right:2px;
+    top:5px;
+
+
 }
 /*=========================================================================*/
 .categoriasMenu{

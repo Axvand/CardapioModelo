@@ -30,6 +30,7 @@ const boxAlert = document.querySelector('.boxAlert')
 const identificadorQtd = document.querySelector(".identificadorQtdCarrinho")
 //=====================================
 //carrinhoMenu
+const mainCarrinho2 = document.querySelector('.mainCarrinho2')
 const carrinhoMenu = document.querySelector(".carrinho")
 //carrinhobutton
 const carrinhoButton = document.querySelector('.boxNav3')
@@ -44,10 +45,6 @@ const totalObj =[]
 const buttonPush = document.querySelectorAll('.PushCard');
 //caixa de pedidos
 const boxPedidos = document.querySelector('.boxPedidosMenuCart')
-
-console.log(boxPedidos)
-
-
 
 //setarAtrinutoEmElementos
 function setAttribute(Atributo, valor, Elemento){
@@ -65,8 +62,6 @@ function setInCar(button, array,total, pizza) {
         //total
         total.push(pizza.preco)
         //------------------
-        console.log(array)
-        console.log(total)
         //animação do alerta
         boxAlert.style.animation = 'fadeIn'
         boxAlert.style.animationDuration = '0.3s'
@@ -88,22 +83,26 @@ function setInCar(button, array,total, pizza) {
         }, 1000)
 
         //incrementar o total
-        var sum = 0;
-        for (var x = 0; x < totalObj.length; x++) {
-            sum += totalObj[x];
+        sum = 0;
+        for (var x = 0; x < pedido.length; x++) {
+            sum += pedido[x].preco
+            ;
         }
+
         document.querySelector('.totalValorCart').innerHTML=`R$${sum},00`;
 
+        console.log(sum)
 
-      // renderProdutono carrinho
+
+      // renderProdutono carrinho 
+         
         addBox()
-        for(var i =0; i<pedido.length;i++){
+        for(var i =0; i<pedido.length; i++){
             txtAdd(i,pedido[i].prato)
             addImg(pedido[i].img ,i)
         }
     })
 };
-
 
 //showCart
 carrinhoButton.addEventListener('click',()=>{
@@ -115,7 +114,7 @@ carrinhoButton.addEventListener('click',()=>{
      
 })
 //closeCart
-carrinhoMenu.addEventListener('click',()=>{
+mainCarrinho2.addEventListener('click',()=>{
     mainCarrinho.style.animation='fadeOutLeft'
     mainCarrinho.style.animationDuration='0.5s'
     mainCarrinho.style.display='block'
@@ -145,7 +144,7 @@ fetch('./pizzas.json', {
 
 
 //Produtos Pedidos:
-function addBox(){
+function addBox() {
     //box principal:
     const box = document.createElement('div');
     boxPedidos.appendChild(box);
@@ -154,17 +153,39 @@ function addBox(){
     const img = document.createElement('img');
     box.appendChild(img);
     setAttribute('class', 'imgCart', img);
-    //
+    //box>txt(.h4)
     const txt = document.createElement('h4');
     box.appendChild(txt);
-    setAttribute('class','textPedido',txt);
+    setAttribute('class', 'textPedido', txt);
+
+    //Delete produto Carrinho:
+    const imgDeleteUrl = 'https://cdn-icons-png.flaticon.com/512/3221/3221803.png'
+    const imgDelete = document.createElement('img');
+    box.appendChild(imgDelete);
+    setAttribute('class', 'imgDelete', imgDelete);
+    setAttribute('height', '25px', imgDelete);
+    setAttribute('width', '25px', imgDelete);
+    setAttribute('src', imgDeleteUrl, imgDelete);
+
+    imgDelete.addEventListener('click', () => {
+        boxPedidos.removeChild(box)
+        pedido.pop()
+        //contador do carrinho..
+        document.querySelector(".identificadorQtdCarrinho").innerHTML = `${pedido.length}`
+
+        console.log(box)
+        console.log(pedido)
+
+       // document.querySelector('.totalValorCart').innerHTML=`R$${sum-preço},00`;
+
+    })
 }
 // função set>Nome dos pratos no carrinho
-function txtAdd(y,NomeDoPrato){
-const textPedido = document.querySelectorAll('.textPedido');
-textPedido[y].innerHTML=NomeDoPrato;
+function txtAdd(y, NomeDoPrato) {
+    const textPedido = document.querySelectorAll('.textPedido');
+    textPedido[y].innerHTML = NomeDoPrato;
 }
-// função set > Imagem dos pratos no carrinho
+// função set>imagem dos pratos no carrinho
 function addImg(imgUrl, i) {
     const imgCart = document.querySelectorAll(".imgCart")
     const atributo = document.createAttribute('src');
