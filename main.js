@@ -158,27 +158,7 @@ function addBox() {
     box.appendChild(txt);
     setAttribute('class', 'textPedido', txt);
 
-    //Delete produto Carrinho:
-    /* const imgDeleteUrl = 'https://cdn-icons-png.flaticon.com/512/3221/3221803.png'
-     const imgDelete = document.createElement('img');
-     box.appendChild(imgDelete);
-     setAttribute('class', 'imgDelete', imgDelete);
-     setAttribute('height', '25px', imgDelete);
-     setAttribute('width', '25px', imgDelete);
-     setAttribute('src', imgDeleteUrl, imgDelete);
- 
-     imgDelete.addEventListener('click', () => {
-         boxPedidos.removeChild(box[box.length - 1])
-         pedido.pop()
-         //contador do carrinho..
-         document.querySelector(".identificadorQtdCarrinho").innerHTML = `${pedido.length}`
- 
-         console.log(box)
-         console.log(pedido)
- 
-         document.querySelector('.totalValorCart').innerHTML=`R$ ${sum},00`;
- 
-     })*/
+    
 }
 // função set>Nome dos pratos no carrinho
 function txtAdd(y, NomeDoPrato) {
@@ -199,8 +179,14 @@ const imgDelete = document.querySelector('.imgDelete')
 imgDelete.addEventListener('click', () => {
     const box = document.querySelectorAll('.produtos')
     pedido.pop()
-    console.log(box)
-    boxPedidos.removeChild(box[box.length - 1])
+
+    box[box.length - 1].style.animation='fadeOutLeft'
+    box[box.length - 1].style.animationDuration='0.3s'
+
+
+    setTimeout(()=>{
+        boxPedidos.removeChild(box[box.length - 1])
+    },200)
 
 
     som = 0;
