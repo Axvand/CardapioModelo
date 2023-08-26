@@ -62,6 +62,13 @@
             "prato": "Pizza Lorem ipsulu 9",
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
             "preco": 60.00
+        },
+        {
+            "id": 9,
+            "img": "https://www.faroldabahia.com/fotos/farol_noticias/28597/IMAGEM_NOTICIA_0.jpg?v=8ee0f8c9c25e644",
+            "prato": "Pizza Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 60.00
         }
     ]
 }

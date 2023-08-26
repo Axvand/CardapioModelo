@@ -203,10 +203,22 @@ body{
 
 .imgDelete{
     position: absolute;
-    right:2px;
-    top:5px;
-
-
+    right:20px;
+    top:470px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    padding: 5px;
+    filter: drop-shadow(2px 1px 1px black); 
+    transition: 0.3s;
+    z-index: 1;
+}
+.imgDelete:hover{
+    
+     scale: 1.2;
+    
+     
 }
 /*=========================================================================*/
 .categoriasMenu{
