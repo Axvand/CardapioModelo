@@ -241,6 +241,7 @@ body{
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
 }
 .Finalizar:hover{
     scale: 1.1;

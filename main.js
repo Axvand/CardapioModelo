@@ -89,9 +89,7 @@ function setInCar(button, array, total, pizza) {
                 ;
         }
 
-        document.querySelector('.totalValorCart').innerHTML = `R$${sum},00`;
-
-        console.log(sum)
+        document.querySelector('.totalValorCart').innerHTML = `R$${sum},00 `;
 
 
         // renderProdutono carrinho 
@@ -201,24 +199,42 @@ imgDelete.addEventListener('click', () => {
 
     som = 0;
     for (var x = 0; x < pedido.length; x++) {
-        som += pedido[x].preco
-            ;
+        som += pedido[x].preco ;
     }
 
-    document.querySelector('.totalValorCart').innerHTML = `R$ ${som},00`
-    if (pedido.length >= 0) {
+    document.querySelector('.totalValorCart').innerHTML = `R$ ${som},00 `
+
+    if(pedido.length<= 0) {
         document.querySelector(".identificadorQtdCarrinho").style.display = 'none';
     } else if (pedido.length > 0) {
         document.querySelector(".identificadorQtdCarrinho").innerHTML = `${pedido.length}`
     }
-
+    
 });
 
 
-const Finalizar = document.querySelector('.Finalizar');
+//finalizar e encaminhar pedido
 
-Finalizar.addEventListener('click', ()=>{
-        const atributo = document.createAttribute(Atributo);
-        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Exemplo%20de%20mensagem%20Pronta%20para%20analise%20`;
-        Finalizar.setAttributeNode(atributo);
+function Encaminhar() {
+    boxButton = document.querySelector('.boxButton');
+    const a = document.createElement('a')
+    boxButton.appendChild(a)
+    setAttribute('class','Finalizar', a)
+
+    a.innerHTML = 'Encaminhar Pedido'
+
+  
+   
+  a.addEventListener('click',()=>{
+
+    sim = 0;
+    for (var x = 0; x < pedido.length; x++) {
+         sim += pedido[x].preco ;
+    } 
+    var atributo = document.createAttribute('href');
+    atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Valor%20do%20pedido:%20R$${sim},00%0APedidos:%20%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)`;
+    a.setAttributeNode(atributo);
+    setAttribute('target', '_blank', a)
 })
+}
+Encaminhar()
