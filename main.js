@@ -100,6 +100,7 @@ function setInCar(button, array, total, pizza) {
         for (var i = 0; i < pedido.length; i++) {
             txtAdd(i, pedido[i].prato)
             addImg(pedido[i].img, i)
+            txtPrice(i, pedido[i].preco)
         }
     })
 };
@@ -158,9 +159,18 @@ function addBox() {
     box.appendChild(txt);
     setAttribute('class', 'textPedido', txt);
 
+    const price = document.createElement('p');
+    box.appendChild(price);
+    setAttribute('class', 'textPreco', price);
+
     
 }
 // função set>Nome dos pratos no carrinho
+function txtPrice(y, preco){
+    const textPreço = document.querySelectorAll('.textPreco')
+    textPreço[y].innerHTML= `R$${preco},00`
+}
+
 function txtAdd(y, NomeDoPrato) {
     const textPedido = document.querySelectorAll('.textPedido');
     textPedido[y].innerHTML = NomeDoPrato;
@@ -202,4 +212,13 @@ imgDelete.addEventListener('click', () => {
         document.querySelector(".identificadorQtdCarrinho").innerHTML = `${pedido.length}`
     }
 
+});
+
+
+const Finalizar = document.querySelector('.Finalizar');
+
+Finalizar.addEventListener('click', ()=>{
+        const atributo = document.createAttribute(Atributo);
+        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Exemplo%20de%20mensagem%20Pronta%20para%20analise%20`;
+        Finalizar.setAttributeNode(atributo);
 })
