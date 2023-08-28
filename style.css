@@ -215,6 +215,12 @@ body{
     width: 200px;
     height: 20px;
 }
+.cepButton{
+    height: 26px;
+    border-radius: 1px;
+    border: 0,1px solid transparent ;
+    background-color: white;
+}
 /*====================================*/
 
 .mainCarrinho{

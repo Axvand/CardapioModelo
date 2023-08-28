@@ -260,7 +260,7 @@ function Encaminhar() {
         console.log(console.log)
 
         //Transformando o objeto em string para encaminhamento.
-        const transFormeString = pedido.map(nomedosPedido => `${nomedosPedido.prato} preço : ${nomedosPedido.preco}///////`)
+        const transFormeString = pedido.map(nomedosPedido => `item: ${nomedosPedido.prato} |||`)
 
         const pedidosEncaminhamento = String(transFormeString)
         console.log(pedidosEncaminhamento)
