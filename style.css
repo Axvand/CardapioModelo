@@ -208,13 +208,12 @@ body{
     font-weight: bold;
     color: rgb(255, 255, 255);
     width: 200px;
-    text-shadow: 1px 0px 3px black;
+    text-shadow: 1px 0px 2px black;
 }
 
 .dadosEndereço{
     width: 200px;
     height: 20px;
-    border: 1px solid transparent;
 }
 /*====================================*/
 
@@ -265,6 +264,7 @@ body{
     padding: 5px;
     filter: drop-shadow(2px 1px 1px black); 
     transition: 0.3s;
+    cursor: pointer;
     z-index: 1;
 }
 .imgDelete:hover{

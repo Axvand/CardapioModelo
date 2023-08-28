@@ -230,18 +230,24 @@ function Encaminhar() {
     a.innerHTML = 'Finalizar pedido'
 
 
-
+//Endereço: 
     const valueInput = document.querySelectorAll(".dadosEndereço");
 
-
-//Endereço: 
-    valueInput[0].addEventListener('change',()=>{
+    valueInput[1].addEventListener('focus',()=>{
     fetch('http://viacep.com.br/ws/'+valueInput[0].value+'/json/')
     .then(res => res.json()).then((res) => {
         const response = res
-         
           setAttribute('value',response.bairro,valueInput[1])
           setAttribute('value',response.logradouro,valueInput[2])
+        });
+    })
+    valueInput[2].addEventListener('focus',()=>{
+    fetch('http://viacep.com.br/ws/'+valueInput[0].value+'/json/')
+    .then(res => res.json()).then((res) => {
+        const response = res
+          setAttribute('value',response.bairro,valueInput[1])
+          setAttribute('value',response.logradouro,valueInput[2])
+
         });
     })
     //===============
@@ -251,26 +257,23 @@ function Encaminhar() {
         for (var x = 0; x < pedido.length; x++) {
              sim += pedido[x].preco ;
         }
+
+        const observacao = document.querySelector(".ObsPedido").value;
+        const cep = valueInput[0].value;
+        const bairro =  valueInput[1].value;
+        const logradouro = valueInput[2].value;
+        const endereco = valueInput[3].value; 
+        const pedid = 'sssssss'
+
         var atributo = document.createAttribute('href');
-        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Valor%20do%20pedido:%20R$${sim},00%0APedidos:%20%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)`;
+        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Ol%C3%A1,%20Pizzaria%20NomeDaEmpresa.%0AAqui%20est%C3%A1%20a%20especifica%C3%A7%C3%A3o%20do%20meu%20pedido.%0A=================%0AValor%20total%20do%20pedido:%20%0AR$${sim},00%0A%0A=================%0APedido:%0A${pedid}%0A%0A=================%0AObserva%C3%A7%C3%A3o:%20%0A${observacao}%0A%0A=================%0AEndere%C3%A7o%0A---------%0ACep:%20${cep}%0ABairro:%20${bairro}%20%0ALogradouro:%20${logradouro}%0AEndere%C3%A7o:%20${endereco}%0A%0A================%0A%0A;`
         a.setAttributeNode(atributo);
         setAttribute('target', '_blank', a)
+
+        
     }
    )
 }
 Encaminhar()
 
 
-
-
-/* a.addEventListener('click',()=>{
-
-    sim = 0;
-    for (var x = 0; x < pedido.length; x++) {
-         sim += pedido[x].preco ;
-    } 
-    var atributo = document.createAttribute('href');
-    atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Valor%20do%20pedido:%20R$${sim},00%0APedidos:%20%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)`;
-    a.setAttributeNode(atributo);
-    setAttribute('target', '_blank', a)
-})*/
