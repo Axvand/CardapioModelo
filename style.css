@@ -175,11 +175,11 @@ body{
 
 /*====================================*/
 .ObsPedido{
-    width: 280px;
+    width: 265px;
     height: 200px;
     border-radius: 10px;
-    padding: 5px;
     background-color: rgb(250, 234, 163);
+    padding: 10px;
 
 }
 /*====================================*/
