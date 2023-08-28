@@ -53,7 +53,7 @@ function setAttribute(Atributo, valor, Elemento) {
     Elemento.setAttributeNode(atributo);
 };
 //setInCar
-function setInCar(button, array, total, pizza) {
+function setInCar(button, array, total, pizza){
     button.addEventListener('click', () => {
         //inclusao na array produtos
         //indicador de qtd carrinho
@@ -71,7 +71,7 @@ function setInCar(button, array, total, pizza) {
         if (pedido.length > 0) {
             identificadorQtd.style.display = 'block'
         }
-        //indicado de quatidade
+        //indicado de quantidade
         document.querySelector(".identificadorQtdCarrinho").innerHTML = `${pedido.length}`
         //saida do alerta animação
         setTimeout(() => {
@@ -220,7 +220,6 @@ imgDelete.addEventListener('click', () => {
 //finalizar e encaminhar pedido
 
 function Encaminhar() {
-
     //criação do botão
     boxButton = document.querySelector('.boxButton');
     const a = document.createElement('a')
@@ -229,19 +228,11 @@ function Encaminhar() {
 
     a.innerHTML = 'Finalizar pedido'
 
-
 //Endereço: 
     const valueInput = document.querySelectorAll(".dadosEndereço");
+    const cepButton = document.querySelector('.cepButton')
 
-    valueInput[1].addEventListener('focus',()=>{
-    fetch('http://viacep.com.br/ws/'+valueInput[0].value+'/json/')
-    .then(res => res.json()).then((res) => {
-        const response = res
-          setAttribute('value',response.bairro,valueInput[1])
-          setAttribute('value',response.logradouro,valueInput[2])
-        });
-    })
-    valueInput[2].addEventListener('focus',()=>{
+    cepButton.addEventListener('click',()=>{
     fetch('http://viacep.com.br/ws/'+valueInput[0].value+'/json/')
     .then(res => res.json()).then((res) => {
         const response = res
@@ -249,7 +240,8 @@ function Encaminhar() {
           setAttribute('value',response.logradouro,valueInput[2])
 
         });
-    })
+    });
+
     //===============
     a.addEventListener('click',()=>{
      //Total:
@@ -263,17 +255,26 @@ function Encaminhar() {
         const bairro =  valueInput[1].value;
         const logradouro = valueInput[2].value;
         const endereco = valueInput[3].value; 
-        const pedid = 'sssssss'
+        const placeholder = 'placeholder'
+
+        console.log(console.log)
+
+        //Transformando o objeto em string para encaminhamento.
+        const transFormeString = pedido.map(nomedosPedido => `${nomedosPedido.prato} preço : ${nomedosPedido.preco}///////`)
+
+        const pedidosEncaminhamento = String(transFormeString)
+        console.log(pedidosEncaminhamento)
+
+
 
         var atributo = document.createAttribute('href');
-        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Ol%C3%A1,%20Pizzaria%20NomeDaEmpresa.%0AAqui%20est%C3%A1%20a%20especifica%C3%A7%C3%A3o%20do%20meu%20pedido.%0A=================%0AValor%20total%20do%20pedido:%20%0AR$${sim},00%0A%0A=================%0APedido:%0A${pedid}%0A%0A=================%0AObserva%C3%A7%C3%A3o:%20%0A${observacao}%0A%0A=================%0AEndere%C3%A7o%0A---------%0ACep:%20${cep}%0ABairro:%20${bairro}%20%0ALogradouro:%20${logradouro}%0AEndere%C3%A7o:%20${endereco}%0A%0A================%0A%0A;`
+        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Ol%C3%A1,%20Pizzaria%20NomeDaEmpresa.%0AAqui%20est%C3%A1%20a%20especifica%C3%A7%C3%A3o%20do%20meu%20pedido.%0A=================%0AValor%20total%20do%20pedido:%20%0AR$${sim},00%0A%0A=================%0APedido:%0A${pedidosEncaminhamento}%0A%0A=================%0AObserva%C3%A7%C3%A3o:%20%0A${observacao}%0A%0A=================%0AEndere%C3%A7o%0A---------%0ACep:%20${cep}%0ABairro:%20${bairro}%20%0ALogradouro:%20${logradouro}%0AEndere%C3%A7o:%20${endereco}`
         a.setAttributeNode(atributo);
         setAttribute('target', '_blank', a)
 
-        
     }
    )
 }
-Encaminhar()
+Encaminhar() // Chamada do processo de encaminhamento
 
 
