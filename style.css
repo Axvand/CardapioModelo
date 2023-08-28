@@ -173,6 +173,16 @@ body{
     border: 1px solid rgba(255, 115, 0, 0.315);  /*creates padding around scroll thumb*/
   }
 
+/*====================================*/
+.ObsPedido{
+    width: 280px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(250, 234, 163);
+
+}
+/*====================================*/
   .boxEndereco{
     background-color:rgb(250, 234, 163);
     padding: 3px;
@@ -197,15 +207,17 @@ body{
     border-radius: 10px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 2px black;
     width: 200px;
-
+    text-shadow: 1px 0px 3px black;
 }
+
 .dadosEndereço{
     width: 200px;
     height: 20px;
     border: 1px solid transparent;
 }
+/*====================================*/
+
 .mainCarrinho{
     display: none;
     position: absolute;
@@ -214,17 +226,15 @@ body{
     width: 300px;
     background-color: rgb(247, 207, 30);
     padding: 4px;
+    padding-bottom: 70px;
 }
-
-
 .mainCarrinho2{
     width: 100%;
-    height: 100%;
+    height: 1270px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .produtos{
-    
     position: relative;
     padding: 3px;
     max-width: 95%;

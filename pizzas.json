@@ -63,12 +63,94 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
             "preco": 60.00
         },
+
+
         {
-            "id": 9,
-            "img": "https://www.faroldabahia.com/fotos/farol_noticias/28597/IMAGEM_NOTICIA_0.jpg?v=8ee0f8c9c25e644",
-            "prato": "Pizza Lorem ipsulu 9",
+            "id": 10,
+            "img": "",
+            "prato": "Hamburguer Lorem ipsulu 9",
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-            "preco": 60.00
+            "preco": 20.00
+        },
+        {
+            "id": 11,
+            "img": "https://s2-casavogue.glbimg.com/GRF9KCq-1hiz5uSs-xX9Go_KqIc=/0x0:2048x1365/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d72fd4bf0af74c0c89d27a5a226dbbf8/internal_photos/bs/2022/p/X/eb4KQdToys327cGqnRGg/receita-ceboloni-bacon.jpg",
+            "prato": "Hamburguer Lorem ipsulu 7",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 30.00
+        },
+        {
+            "id": 12,
+            "img": "https://receitinhas.com.br/wp-content/uploads/2016/12/hamburguer.jpg",
+            "prato": "Hamburguer Lorem ipsulu 8",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 50.00
+        },
+        {
+            "id": 13,
+            "img": "https://cdn.casaeculinaria.com/wp-content/uploads/2023/02/08120739/Hamburguer.jpg",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 10.00
+        },
+        {
+            "id": 14,
+            "img": "https://www.sabornamesa.com.br/media/k2/items/cache/bf1e20a4462b71e3cc4cece2a8c96ac8_XL.jpg",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 40.00
+        },
+        {
+            "id": 15,
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0sbjCDE5y2gcpZAiD5_kmRvgZ0Qpal9Jf4Q&",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 30.00
+        },
+
+
+
+        {
+            "id": 16,
+            "img": "https://quick-live.eu-central-1.linodeobjects.com/media/images/COCA_DETAIL_HhxNccV.format-jpeg.jpegquality-75.jpg",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 8.00
+        },
+        {
+            "id": 17,
+            "img": "https://img.ws.mms.shopee.com.br/0bf8e95cadefe3caf5c7eae888adc4c4",
+            "prato": "Hamburguer Lorem ipsulu 7",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 10.00
+        },
+        {
+            "id": 18,
+            "img": "https://cf.shopee.com.br/file/34b5a24169e437e870443c4701d6e4ab",
+            "prato": "Hamburguer Lorem ipsulu 8",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 7.00
+        },
+        {
+            "id": 19,
+            "img": "https://embalagemmarca.com.br/wp-content/uploads/2020/11/unnamed-1.jpg",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 7.00
+        },
+        {
+            "id": 20,
+            "img": "https://www.promoview.com.br/uploads/2019/05/039dd55f.png",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 8.00
+        },
+        {
+            "id": 21,
+            "img": "https://i.redd.it/8egixjokcdb91.jpg",
+            "prato": "Hamburguer Lorem ipsulu 9",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+            "preco": 10.00
         }
     ]
 }

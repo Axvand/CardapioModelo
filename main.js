@@ -134,7 +134,7 @@ fetch('./pizzas.json', {
 })
     .then(res => res.json()).then((res) => {
         const pizzas = res.pizzas
-        for (var x = 0; x < 10; x++) {
+        for (var x = 0; x < pizzas.length; x++) {
             setInCar(buttonCard[x], pedido, totalObj, pizzas[x])
         }
 
@@ -227,12 +227,41 @@ function Encaminhar() {
     boxButton.appendChild(a)
     setAttribute('class','Finalizar', a)
 
-    a.innerHTML = 'Cadastrar Endereço'
+    a.innerHTML = 'Finalizar pedido'
 
 
- 
+
+    const valueInput = document.querySelectorAll(".dadosEndereço");
+
+
+//Endereço: 
+    valueInput[0].addEventListener('change',()=>{
+    fetch('http://viacep.com.br/ws/'+valueInput[0].value+'/json/')
+    .then(res => res.json()).then((res) => {
+        const response = res
+         
+          setAttribute('value',response.bairro,valueInput[1])
+          setAttribute('value',response.logradouro,valueInput[2])
+        });
+    })
+    //===============
+    a.addEventListener('click',()=>{
+     //Total:
+        sim = 0;
+        for (var x = 0; x < pedido.length; x++) {
+             sim += pedido[x].preco ;
+        }
+        var atributo = document.createAttribute('href');
+        atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Valor%20do%20pedido:%20R$${sim},00%0APedidos:%20%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)`;
+        a.setAttributeNode(atributo);
+        setAttribute('target', '_blank', a)
+    }
+   )
 }
 Encaminhar()
+
+
+
 
 /* a.addEventListener('click',()=>{
 
