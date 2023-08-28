@@ -212,20 +212,29 @@ imgDelete.addEventListener('click', () => {
     
 });
 
+//etapa: ========================================
+
+//===============================================
+
 
 //finalizar e encaminhar pedido
 
 function Encaminhar() {
+
+    //criação do botão
     boxButton = document.querySelector('.boxButton');
     const a = document.createElement('a')
     boxButton.appendChild(a)
     setAttribute('class','Finalizar', a)
 
-    a.innerHTML = 'Encaminhar Pedido'
+    a.innerHTML = 'Cadastrar Endereço'
 
-  
-   
-  a.addEventListener('click',()=>{
+
+ 
+}
+Encaminhar()
+
+/* a.addEventListener('click',()=>{
 
     sim = 0;
     for (var x = 0; x < pedido.length; x++) {
@@ -235,6 +244,4 @@ function Encaminhar() {
     atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Valor%20do%20pedido:%20R$${sim},00%0APedidos:%20%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)%0A(xxxxxxxxxxxxxxxxx)`;
     a.setAttributeNode(atributo);
     setAttribute('target', '_blank', a)
-})
-}
-Encaminhar()
+})*/

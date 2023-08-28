@@ -117,6 +117,10 @@ body{
     backdrop-filter: blur(2px);
     position: fixed;
     display: none;
+    overflow-y: scroll;
+
+}
+.InBoxEndereco{
 
 }
 .navCarrinho{
@@ -133,6 +137,7 @@ body{
     color: white;
     text-shadow: 0px 1px 3px black;
     font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .textoTotal{
     font-weight: bolder;
@@ -157,31 +162,69 @@ body{
   
   .boxPedidosMenuCart::-webkit-scrollbar-track {
     background: rgb(253, 253, 253); 
-    border-radius: 20px;      
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;       
   }
   
   .boxPedidosMenuCart::-webkit-scrollbar-thumb {
     background-color: rgb(255, 145, 0);    /* color of the scroll thumb */
-    border-radius: 5px;       /* roundness of the scroll thumb */
-    border: 1px solid rgba(255, 115, 0, 0.315);  /* creates padding around scroll thumb */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;       /* roundness of the scroll thumb */
+    border: 1px solid rgba(255, 115, 0, 0.315);  /*creates padding around scroll thumb*/
   }
+
+  .boxEndereco{
+    background-color:rgb(250, 234, 163);
+    padding: 3px;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.InBoxEndereco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.InfoEnd{
+    padding: 1px 5px 1px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 2px black;
+    width: 200px;
+
+}
+.dadosEndereço{
+    width: 200px;
+    height: 20px;
+    border: 1px solid transparent;
+}
 .mainCarrinho{
     display: none;
     position: absolute;
     left:0;
     max-width: 76%;
     width: 300px;
-    height: 700px;
     background-color: rgb(247, 207, 30);
     padding: 4px;
 }
 
+
 .mainCarrinho2{
     width: 100%;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .produtos{
+    
     position: relative;
     padding: 3px;
     max-width: 95%;
@@ -221,6 +264,7 @@ body{
     padding-top: 30px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
 }
