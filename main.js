@@ -243,6 +243,8 @@ function Encaminhar() {
     });
 
     //===============
+
+    //função que encaminha tudo
     a.addEventListener('click',()=>{
      //Total:
         sim = 0;
@@ -255,9 +257,6 @@ function Encaminhar() {
         const bairro =  valueInput[1].value;
         const logradouro = valueInput[2].value;
         const endereco = valueInput[3].value; 
-        const placeholder = 'placeholder'
-
-        console.log(console.log)
 
         //Transformando o objeto em string para encaminhamento.
         const transFormeString = pedido.map(nomedosPedido => `item: ${nomedosPedido.prato} |||`)
@@ -266,7 +265,7 @@ function Encaminhar() {
         console.log(pedidosEncaminhamento)
 
 
-
+       //setando o link do whatsapp como caminho Href no botão<a>;
         var atributo = document.createAttribute('href');
         atributo.value = `https://api.whatsapp.com/send?phone=5561996081625&text=Ol%C3%A1,%20Pizzaria%20NomeDaEmpresa.%0AAqui%20est%C3%A1%20a%20especifica%C3%A7%C3%A3o%20do%20meu%20pedido.%0A=================%0AValor%20total%20do%20pedido:%20%0AR$${sim},00%0A%0A=================%0APedido:%0A${pedidosEncaminhamento}%0A%0A=================%0AObserva%C3%A7%C3%A3o:%20%0A${observacao}%0A%0A=================%0AEndere%C3%A7o%0A---------%0ACep:%20${cep}%0ABairro:%20${bairro}%20%0ALogradouro:%20${logradouro}%0AEndere%C3%A7o:%20${endereco}`
         a.setAttributeNode(atributo);
